@@ -41,5 +41,5 @@ python score_chromosome.py -p ./input/gm12878/Rao2014-GM12878-MboI-allreps-filte
 
 ### Cluster
 ```bash
-python cluster.py -d 5 -i ./scores/chr15.bed -r 10000 -m 0.97 -p 75 -e 10 -o ./cluster/chr15loop.bed -f
+python cluster.py -d 5 -i ./scores/chr15.bed -r 10000 -m 0.97 -p 75 -e 10 -o ./cluster/chr15-loop.bed -f
 ``````
