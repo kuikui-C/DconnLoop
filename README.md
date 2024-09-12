@@ -24,7 +24,7 @@ hicConvertFormat -m ./ENCFF097SKJ_10000.cool --inputFormat cool --outputFormat c
 python PosNeg_Samp_Gen.py -p ./input/gm12878/Rao2014-GM12878-MboI-allreps-filtered.10kb.cool -b ./training-sets/gm12878_ctcf_h3k27ac.bedpe -a ./input/gm12878/ENCFF816ZFB.bigWig -c ./input/gm12878/ENCFF797LSC.bigWig -o ./PosNeg_samp/
 ``````
 
-### training
+### Training
 ```bash
 python leave_one_train.py -d ./PosNeg_samp/ -g 1,2,3 -b 256 -lr 0.001 -e 30 -w 0.0005 -c ./model/
 ``````
@@ -36,5 +36,10 @@ python leave_one_test.py -d ./PosNeg_samp/ -g 1,2,3  -c ./model/ -f ./model/chr1
 
 ### Score
 ```bash
-python score_chromosome.py -p ./input/gm12878/Rao2014-GM12878-MboI-allreps-filtered.10kb.cool -a ./input/gm12878/ENCFF816ZFB.bigWig -c ./input/gm12878/ENCFF797LSC.bigWig -q 0.1 -n 12 -o ./scores/ -m ./model/chr15_model_best.pth
+python score_chromosome.py -p ./input/gm12878/Rao2014-GM12878-MboI-allreps-filtered.10kb.cool -a ./input/gm12878/ENCFF816ZFB.bigWig -c ./input/gm12878/ENCFF797LSC.bigWig -q 0.6 -n 12 -o ./scores/ -m ./model/chr15_model_best.pth
+``````
+
+### Cluster
+```bash
+python cluster.py -d 5 -i ./scores/chr15.bed -r 10000 -m 0.97 -p 75 -e 10 -o ./cluster/chr15loop.bed -f
 ``````
