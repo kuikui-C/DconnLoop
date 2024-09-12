@@ -391,8 +391,3 @@ class ConvBnRelu(nn.Module):
 
         return x
 
-# if __name__ == '__main__':
-
-
-#    model = DconnNet()
-#    torchsummary.summary(model, (3, 512, 512))
